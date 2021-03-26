@@ -41,16 +41,6 @@ function getMatch(fullLink){
 }
 function matchPlayerStats(html){
     let selTool=cheerio.load(html);
-    /* let team1=selTool(".match-info.match-info-MATCH .teams .team.team-gray p").text();
-    console.log("Team1 -> "+team1);
-    console.log("`````````");
-    let team1Path=path.join(dirPath,team1)
-    //dirCreator(team1Path);
-    let team2=selTool(".match-info.match-info-MATCH .teams div[class='team'] p").text();
-    console.log("Team2 -> "+team2);
-    let team2Path=path.join(dirPath,team2)
-    dirCreator(team2Path);
-     */
     let teamArr1=selTool(".match-info.match-info-MATCH p");
     let team1=selTool(teamArr1[0]).text();
     console.log("Team1 -> "+team1);
@@ -62,14 +52,11 @@ function matchPlayerStats(html){
     dirCreator(team2Path);
     console.log("`````````");
     let result=selTool(".match-info.match-info-MATCH .status-text").text();
-    //console.log(result);
     let date=selTool(".event .description").text();
-   // console.log(date);
     let teamArr=selTool(".table.batsman");
             let opposition="";
             let myTeam="";
             let teamPath="";
-            //console.log(opposition);
             for(let j=0;j<teamArr.length;j++){
                 if(j==0){
                      opposition=team2;
@@ -80,18 +67,13 @@ function matchPlayerStats(html){
                      myTeam=team2;
                      teamPath=team2Path;
                 }
-              // console.log(myTeam);
                 let playerRow=selTool(teamArr[j]).find("tr");
                 for(let i=1;i<playerRow.length-4;i++){
                 let statsArr=selTool(playerRow[i]).find("td");
                 let playerName=selTool(statsArr[0]).text().trim();
-               // console.log(playerName);
                 let runs=selTool(statsArr[2]).text();
-              // console.log(runs);
                let balls=selTool(statsArr[3]).text();
-               // console.log(balls);
                let fours=selTool(statsArr[5]).text();
-              //  console.log(fours)
                let sixes=selTool(statsArr[6]).text();
                let sr=selTool(statsArr[7]).text();
               let arr=[];
