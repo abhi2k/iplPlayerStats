@@ -1,6 +1,5 @@
 let fs=require("fs");
 let path=require("path");
-let PDFDocument=require("pdfkit");
 let request=require("request");
 let cheerio=require("cheerio");
 
@@ -87,7 +86,6 @@ function matchPlayerStats(html){
                    Results:result,
                    Opponent:opposition
                })
-              // console.log(arr); 
                let filePath=path.join(teamPath,playerName+".json");
                if(fs.existsSync(filePath)==false){
               fs.writeFileSync(filePath,JSON.stringify(arr));
