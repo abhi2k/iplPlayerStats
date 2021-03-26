@@ -93,31 +93,9 @@ function matchPlayerStats(html){
                    fs.appendFileSync(filePath,JSON.stringify(arr));
                } 
             }
-        }
-
-    
-    
+        }   
 }
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function dirCreator(dirpath) {
+ function dirCreator(dirpath) {
     if (fs.existsSync(dirpath) == false) {
         fs.mkdirSync(dirpath);
     }
