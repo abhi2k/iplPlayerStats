@@ -18,7 +18,6 @@ function cb(err,response,html){
 function extractTeamData(html){
     let selTool=cheerio.load(html);
     let anchorArr=selTool(".col-md-8.col-16");
-    //console.log(anchorArr);
     for(let i=0;i<anchorArr.length;i++){
             //finding matchlinks
          let matchLink=selTool(anchorArr[i]).find("a.match-info-link-FIXTURES")
