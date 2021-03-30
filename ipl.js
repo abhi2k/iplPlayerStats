@@ -70,12 +70,12 @@ function matchPlayerStats(html){
                 let statsArr=selTool(playerRow[i]).find("td");
                 let playerName=selTool(statsArr[0]).text().trim();
                 let runs=selTool(statsArr[2]).text();
-               let balls=selTool(statsArr[3]).text();
-               let fours=selTool(statsArr[5]).text();
-               let sixes=selTool(statsArr[6]).text();
-               let sr=selTool(statsArr[7]).text();
-              let arr=[];
-               arr.push({
+                let balls=selTool(statsArr[3]).text();
+                let fours=selTool(statsArr[5]).text();
+                let sixes=selTool(statsArr[6]).text();
+                let sr=selTool(statsArr[7]).text();
+                let arr=[];
+                arr.push({
                    Run:runs,
                    Ball:balls,
                    Four:fours,
@@ -87,9 +87,9 @@ function matchPlayerStats(html){
                })
                let filePath=path.join(teamPath,playerName+".json");
                if(fs.existsSync(filePath)==false){
-              fs.writeFileSync(filePath,JSON.stringify(arr));
+               fs.writeFileSync(filePath,JSON.stringify(arr));
                } else{
-                   fs.appendFileSync(filePath,JSON.stringify(arr));
+               fs.appendFileSync(filePath,JSON.stringify(arr));
                } 
             }
         }   
